@@ -19,15 +19,15 @@
         table{
             width: 100%;
             height: 100vh;
-            border-collapse: collapse;
+            table-layout: fixed;
+           border-collapse: collapse;
         }
         table tr th{
             padding: 5px;
             background-color: rgba(192, 192, 192, 0.79);
         }
         table tr td{
-            padding: 5px;
-
+            padding:5px ;
         }
         table tr td[colspan = "6"]{
             text-align: left;
@@ -42,11 +42,16 @@
             text-align: left;
             border-top: 0;
             border-left: 0;
+            border-right: 0;
         }
 
         table tr td[colspan = "15"]{
             background-color: rgba(192, 192, 192, 0.79);
             letter-spacing: 1em;
+        }#l{border: 0;}
+
+        table tr td[colspan = "4"],[colspan = "2"]{
+          text-align: left;
         }
 
     </style>
@@ -74,7 +79,9 @@
       </tr>
       <tr>
           <td colspan="11">Class Coordinator: Prof Heman Mehta(Cabin no.MA256,Ext no.1267)</td>
+          <td id="l"></td>
       </tr>
+
 
     <!--- Time Table --->
 
@@ -129,18 +136,18 @@
        </tr>
        <tr>
            <td>4</td>
-           <td>10:40 - 11:35</td>
+           <td>10:40-11:35</td>
            <td colspan="3" title="Advance Java PROF.JAY TERAIYA">AJ-JBT<br>LAB 13</td>
            <td colspan="3" title="Net Technology PROF.HIREN KOTADIYA">DNT - HAK<br>MB205</td>
        </tr>
         <tr>
            <td></td>
-           <td>11:35 - 11:55</td>
+           <td>11:35-11:55</td>
            <td colspan="15">TEA BREAK</td>
        </tr>
        <tr>
            <td>5</td>
-           <td>11:55 - 12:55</td>
+           <td>11:55-12:55</td>
            <td colspan="3" title="Web Technology PROF.NIKUNJ VADHER">WT - NV<br>MB205</td>
            <td colspan="3" title="Net Technology PROF.HIREN KOTADIYA">DNT - HAK <br> MB205</td>
            <td colspan="3" title="Software Engineering PROF.MADHU S SHUKLA">SE - MSS<br>MB205</td>
@@ -164,15 +171,15 @@
     <!-- last Area --->
        <tr>
            <th colspan="6">SUBJECT NAMES AND CODES</th>
-           <th colspan="5">LAB PREMISES</th>
-           <th colspan="6">FACULTY INITIALS AND NAMES</th>
+           <th colspan="6">LAB PREMISES</th>
+           <th colspan="5">FACULTY INITIALS AND NAMES</th>
        </tr>
        <tr>
            <td>SE</td>
            <td>2160705</td>
            <td colspan="4">Software Engineering</td>
            <td>SE</td>
-           <td>LAB NO.16</td>
+           <td colspan="2">LAB NO.16</td>
            <td></td>
            <td colspan="2"></td>
            <td>JBT</td>
@@ -184,7 +191,7 @@
            <td>2160707</td>
            <td colspan="4">Advanced Java</td>
            <td>AJ</td>
-           <td>LAB NO.3,13</td>
+           <td colspan="2">LAB NO.3,13</td>
            <td></td>
            <td colspan="2"></td>
            <td>HMM</td>
@@ -196,7 +203,7 @@
            <td>2160704</td>
            <td colspan="4">Theory of Computation</td>
            <td>WT</td>
-           <td>LAB NO.11,12,16</td>
+           <td colspan="2">LAB NO.11,12,16</td>
            <td></td>
            <td colspan="2"></td>
            <td>MSS</td>
@@ -208,7 +215,7 @@
            <td>2160708</td>
            <td colspan="4">Web Technology</td>
            <td>DNT</td>
-           <td>LAB NO.12</td>
+           <td colspan="2">LAB NO.12</td>
            <td></td>
            <td colspan="2"></td>
            <td>AGR</td>
@@ -220,7 +227,7 @@
            <td>2160711</td>
            <td colspan="4">Net Technology</td>
            <td></td>
-           <td></td>
+           <td colspan="2"></td>
            <td></td>
            <td colspan="2"></td>
            <td>HAK</td>
@@ -232,7 +239,7 @@
            <td>2160001</td>
            <td colspan="4">Design Engineering IIB</td>
            <td></td>
-           <td></td>
+           <td colspan="2"></td>
            <td></td>
            <td colspan="2"></td>
            <td>NV</td>
@@ -244,7 +251,7 @@
            <td></td>
            <td colspan="4"></td>
            <td></td>
-           <td></td>
+           <td colspan="2"></td>
            <td></td>
            <td colspan="2"></td>
            <td>KS</td>
@@ -256,7 +263,7 @@
            <td></td>
            <td colspan="4"></td>
            <td></td>
-           <td></td>
+           <td colspan="2"></td>
            <td></td>
            <td colspan="2"></td>
            <td>RR</td>
@@ -268,7 +275,7 @@
            <td></td>
            <td colspan="4"></td>
            <td></td>
-           <td></td>
+           <td colspan="2"></td>
            <td></td>
            <td colspan="2"></td>
            <td>NPJ</td>
