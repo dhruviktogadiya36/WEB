@@ -5,86 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/icon" href="logo.png">
     <title>Time Table</title>
-    <style>
-        *{
-            padding: 0;
-            margin: 0;
-            text-align: center;
-            letter-spacing: 0.5px;
-            line-height: 1.25;
-            font-size: 14px;
-        }
-        html,body{
-            overflow:hidden;
-          }
-        table{
-            width: 100%;
-            height: 100vh;
-            table-layout: fixed;
-           border-collapse: collapse;
-        }
-        table tr th{
-            padding: 5px;
-            background-color: rgba(192, 192, 192, 0.79);
-        }
-        table tr td{
-            padding:5px ;
-        }
-        table tr td[colspan = "9"]{
-            text-align: left;
-            border: 0;
-        }
-        table tr.tt td[colspan = "3"]{
-          text-align: left;
-          border: 0;
-        }
-        table tr td[colspan = "12"],[colspan = "5"]{
-            border-bottom: 0;
-            border-right: 0;
-            border-left: 0;
-        }
-        table tr td[colspan = "11"]{
-            text-align: left;
-            border-top: 0;
-            border-left: 0;
-            border-right: 0;
-        }
 
-        table tr td[colspan = "15"]{
-            background-color: rgba(192, 192, 192, 0.79);
-            letter-spacing: 1em;
-        }#l{border: 0;}
-
-        table tr td[colspan = "4"],[colspan = "2"]{
-          text-align: left;
-        }
-
-    </style>
-
+    
 </head>
 
-<body>
+<body style="margin:0" >
 
-   <table border="1">
+   <table border="1" style="text-align:center; table-layout:fixed; width: 100%;
+   height: 100vh; border-collapse:collapse">
 
      <!-- heading of Table -->
       <tr>
-          <td colspan="5" rowspan="5"> <a href="https://marwadieducation.edu.in/MEFONLINE/MEFGILogin.aspx" target="_blank"><img src="marwadi.jpg" width="300px" height="100px"></a></td>
+          <td colspan="5" rowspan="5"><img src="marwadi.jpg" width="300px" height="100px"></td>
       </tr>
       <tr>
-          <td colspan="12">FACULTY OF ENGINEERING<br>Department of Computer Engineering</td>
+          <td colspan="12"  style="border-bottom:0;border-top:0">FACULTY OF ENGINEERING<br>Department of Computer Engineering</td>
       </tr>
       <tr class="tt">
-          <td colspan="9">Semester:VI</td>
-          <td colspan="3">W.E Date:-17/12/18</td>
+          <td colspan="9" style="text-align:left; border-top:0;border-bottom: 0;border-right:0">Semester:VI</td>
+          <td colspan="3" style="text-align:left;border-top:0;border-bottom: 0;border-left:0">W.E Date:-17/12/18</td>
       </tr>
       <tr class="tt">
-          <td colspan="9">Class Room: MB204/MB205</td>
-          <td colspan="3">Division:- 6C1</td>
+          <td colspan="9" style="text-align:left;border-top:0;border-bottom:0;border-right:0">Class Room: MB204/MB205</td>
+          <td colspan="3" style="text-align:left; border-top:0;border-bottom: 0;border-left:0 ">Division:- 6C1</td>
       </tr>
       <tr>
-          <td colspan="11">Class Coordinator: Prof Heman Mehta(Cabin no.MA256,Ext no.1267)</td>
-          <td id="l"></td>
+          <td colspan="12" style="text-align:left;border-top:0;border-bottom: 0">Class Coordinator: Prof Heman Mehta(Cabin no.MA256,Ext no.1267)</td>
       </tr>
 
 
