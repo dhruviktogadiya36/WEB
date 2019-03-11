@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cal.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="calcBox">
+        <div>
+            <h1 id="inputLabel">0</h1>
+            <h1 id="inputLabel2">0</h1>
+        </div>
+        <div class="box">
+            <button onclick="pushBtn(this);">CE</button>
+            <button onclick="pushBtn(this);">C</button>
+            <button onclick="pushBtn(this);"> </button>
+            <button onclick="pushBtn(this);" class="sign">%</button>
+        </div>
+        <div class="box">
+            <button onclick="pushBtn(this);">7</button>
+            <button onclick="pushBtn(this);">8</button>
+            <button onclick="pushBtn(this);">9</button>
+            <button onclick="pushBtn(this);" class="sign">/</button>
+        </div>
+        <div class="box">
+            <button onclick="pushBtn(this);">4</button>
+            <button onclick="pushBtn(this);">5</button>
+            <button onclick="pushBtn(this);">6</button>
+            <button onclick="pushBtn(this);" class="sign">*</button>
+        </div>
+        <div class="box">
+            <button onclick="pushBtn(this);">1</button>
+            <button onclick="pushBtn(this);">2</button>
+            <button onclick="pushBtn(this);">3</button>
+            <button onclick="pushBtn(this);" class="sign">-</button>
+        </div>
+        <div class="box">
+            <button onclick="pushBtn(this);">.</button>
+            <button onclick="pushBtn(this);">0</button>
+            <button onclick="pushBtn(this);">=</button>
+            <button onclick="pushBtn(this);" class="sign">+</button>
+        </div>
+    </div>
+    <script src="cal.js"></script>
+</body>
+
+</html>

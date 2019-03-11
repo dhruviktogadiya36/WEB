@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    font-family: 'Roboto';
+}
+.box{
+    display: flex; 
+}
+button{
+    flex: 1;
+    padding: 38px 0;
+    font-size: 35px;
+    border: 0;
+    outline: 0;
+    font-weight: 300;
+}
+.box button:nth-child(3){
+    border-right: 2px solid silver;
+}
+button:active,.box button:nth-child(odd):active{
+    background-color: rgb(212, 210, 210);
+}
+.sign{
+    color: blue;
+}
+h1{
+    width: 100%;
+   color: black;
+    font-size: 70px;
+    font-weight: bold;
+    padding: 10px;
+    background-color: white;
+    text-align: end;
+}
