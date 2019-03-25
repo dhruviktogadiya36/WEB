@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="./admin/Css/admin.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="location">
+            <a href="">
+                <div class="loction_list">
+                    <h3>Rajkot</h3>
+                    <i class="material-icons">
+                        location_on
+                    </i>
+                </div>
+            </a>
+        </div>
+
+        <form action="" class="search">
+            <div class="search_list">
+                <input class="inp" type="search" placeholder="Search.....">
+            </div>
+        </form>
+
+        <nav>
+            <ul class="nav-box">
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Cart</a></li>
+                <li class="sub_menu_profile"><a href="#">Shyam</a>
+                    <ul>
+                        <li><a href="">Profile</a></li>
+                        <li><a href="">Order</a></li>
+                        <li><a href="">Wishlist</a></li>
+                        <li><a href="">Notification</a></li>
+                        <li><a href="../index.html">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="main_form">
+        <form action="./admin/Php/admin.php" method="post" enctype="multipart/form-data">
+
+            <div class="form_row">
+                <label>Shop Name:</label>
+                <input type="text" placeholder="shop name" name="shopname23" maxlength="20" class="shop">
+            </div>
+
+            <div class="form_row">
+                <label>Password:</label>
+                <input type="password" placeholder="Password" name="shoppass" class="shop">
+            </div>
+
+            <div class="form_row">
+                <label>Shop Menu:</label>
+                <input type="text" placeholder="shop menu" name="shopmenu" maxlength="30" class="shop">
+            </div>
+
+            <div class="form_row">
+                <label>Shop Address:</label>
+                <input type="address" placeholder="shop address" name="shopaddress" maxlength="50">
+            </div>
+
+            <div class="form_image">
+                <label>Shop Image:</label>
+                <input type="file" name="pimage">
+            </div>
+
+            <div class ="btn">
+                <input type="submit" name="submit1" value="Submit" class="button">
+            </div>
+            
+        </form>
+    </body>
+
+    </html>

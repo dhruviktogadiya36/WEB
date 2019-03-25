@@ -1,0 +1,116 @@
+
+<div>
+				<a href="#">
+					<div class="box">
+						<div class="rating">
+							<p>4.0</p>
+						</div>
+						<div class="img_box">
+							<img src="../image/pizza1.jpg" alt="pizza">
+						</div>
+						<div class="menu_name">
+							<div class="shop_name">
+								<div class="food_name">
+									<h3>Domino's Pizza</h3>
+								</div>
+								<div class="wishlist_shop">
+									<i class="material-icons">favorite</i>
+								</div>
+							</div>
+							<div class="menu_list">
+								<h4>pizza</h4>
+							</div>
+							<div class="shop_adar">
+								<h5>KOTECHA NAGAR, RAJKOT</h5>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+
+
+
+
+
+
+
+
+
+
+.box{
+    float: left;
+    position: relative;
+    padding: 20px;
+    margin: 30px 0 0 50px;
+    width: 260px;
+    height: 300px;
+    border:none;
+    background-color: #f0f0f0;
+    transition: .2s;
+    border-radius: 5px;
+    z-index: 11111111111;
+   
+}
+.box:hover{
+    box-shadow: 0 2px 15px 2px  rgb(209, 209, 209);
+
+}
+.box .rating{
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: green;
+    z-index: 1;
+}
+.box .rating p{
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    line-height: 40px;
+    font-weight: 400;
+    letter-spacing: .5px;
+}
+.box .img_box{
+    position: absolute;
+}
+img{
+    width: 220px;
+    height: 160px;
+    background-size: cover;
+    border-radius: 5px;
+}
+.box .menu_name{
+    position: absolute;
+    right: 0px;
+    left: 20px;
+    bottom: 0;
+}
+.box .menu_name .shop_name,.menu_list,.shop_adar{
+margin: 10px 0;
+}
+h3{
+    font-weight: 500;
+}
+h4,h5{
+    font-weight: 400;
+}
+.box .menu_name .shop_name{
+    position: relative;
+    display: flex;
+}
+.shop_name .wishlist_shop{
+    position: absolute;
+    right: 20px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.shop_name .wishlist_shop .material-icons{
+    color: red;
+}
+.box .shop_adar{
+    word-wrap: break-word; 
+}
