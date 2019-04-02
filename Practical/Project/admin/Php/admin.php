@@ -7,8 +7,7 @@ $shopname1 = $_POST["shopname23"];
 
 if(isset($_POST["submit1"]))
 {
-
-    $v1=rand(1111,9999);
+ $v1=rand(1111,9999);
 $v2=rand(1111,9999);
 
 $v3=$v1.$v2;
@@ -23,7 +22,6 @@ $v3=md5($v3);
     mysqli_query($con,"INSERT INTO admin_shop VALUES ( '' , '$shopname1', '$_POST[shoppass]' , '$_POST[shopmenu]', '$_POST[shopaddress]', '$dst1' ) ");
 }  
 ?>
-
 
 <?php 
 

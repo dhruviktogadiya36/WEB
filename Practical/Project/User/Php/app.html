@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script>
+        function setCookie(){
+            var d = new Date();
+    var txt =  document.getElementById("hello");
+    var t1=    txt.innerHTML;
+
+    // var txt2 =  document.getElementById("helo");
+    // var t2=    txt2.innerHTML;
+
+    cvalue = t1;
+    cname = 1;
+    cname++;
+    console.log(t1);
+    exdays= 2;
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+    </script>
+
+</head>
+
+<body>
+        <div>
+            <h1 id="hello">ridham</h1>
+            <h1 id="helo">shyam</h1>
+            <form action=""> 
+                <input id="ayy" type="button" value="add" onclick="setCookie()">
+            </form>
+        </div>
+
+</body>
+
+</html>
+
+
+
+
+
+<!-- 
+<h1 id="hi">helllloooooo</h1>
+
+<button onclick="myFunction()">Button</button>
+<div class="menuboxcart">
+</div>
+
+<script>
+    function myFunction() {
+        if(document.getElementById(""))
+        var main = document.querySelector(".menuboxcart");
+
+        var sqr = document.createElement("div");
+        sqr.setAttribute("class", "sqr");
+
+        var circle = document.createElement("div");
+        circle.setAttribute("class", "circle");
+
+        var item = Math.floor(Math.random() * 100) + 1;
+
+        sqr.appendChild(circle);
+        var m = document.querySelector("#hi").innerHTML;
+        console.log(m);
+document.getElementById
+        var h3 = document.createElement("h3");
+        h3.setAttribute("id","")
+        var q = h3.innerHTML = m;
+        var p = document.createElement("p");
+        p.setAttribute("id","price");
+        var w = p.innerHTML = "hooo";
+        main.appendChild(sqr);
+        main.appendChild(h3);
+        main.appendChild(p);
+
+        var form = document.createElement("form");
+        form.setAttribute("class", "btn");
+
+        var minus = document.createElement("input");
+        var minus_plus = minus.setAttribute("type", "button");
+        var minus1 = document.createElement("input");
+        var minus_plus = minus1.setAttribute("type", "button");
+        var minus2 = document.createElement("input");
+        var minus_plus = minus2.setAttribute("type", "button");
+
+        form.appendChild(minus);
+        form.appendChild(minus1);
+        form.appendChild(minus2);
+
+        main.appendChild(form);
+
+    }
+</script> -->

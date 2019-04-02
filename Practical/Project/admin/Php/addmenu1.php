@@ -8,8 +8,22 @@ $s2 = str_replace(" ", "_", $table);
  
 if(isset($_POST["submitSave"]))
 {
-    mysqli_query($con,"INSERT INTO $s2 (id ,menu_list,food_type,price, image_food) VALUES (' ','$_POST[addMenu]','$_POST[veg]','$_POST[price]','$_POST[foodImg]')");
+    $v1=rand(1111,9999);
+    $v2=rand(1111,9999);
+    
+    $v3=$v1.$v2;
+    
+    $v3=md5($v3);
+    
+        $fnm = $_FILES["pimage"]["name"];
+        $dst = "../shop_menu/".$v3.$fnm;
+        $dst1 = "shop_menu/".$v3.$fnm;
+        move_uploaded_file($_FILES["pimage"]["tmp_name"],$dst);
+
+    mysqli_query($con,"INSERT INTO $s2 (id ,menu_list,food_type,price, image_food) VALUES (' ','$_POST[addMenu]','$_POST[veg]','$_POST[price]','$dst1')");
 }
+
+
 
 ?>
 <!DOCTYPE html>
@@ -19,97 +33,8 @@ if(isset($_POST["submitSave"]))
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../Css/food_admin.css">
+    <link rel="stylesheet" href="../Css/addmenu.css">
     <title>Document</title>
-    <style>
-        .form_submit {
-            margin: 10px 17px;
-            padding: 10px 20px;
-            border: 0;
-            outline: 0;
-            background-color: gray;
-            color: white;
-        }
-
-
-        input.shop {
-            text-transform: capitalize;
-        }
-
-        input.shopadd {
-            text-transform: uppercase;
-        }
-
-        /******************/
-
-        #menu_list {
-            display: flex;
-            padding: 0 17px;
-        }
-
-        .add_food_here,
-        .veg,
-        .non-veg,
-        .total,
-        .closeit,
-        .edit {
-            margin: 10px 5px;
-            padding: 7px;
-            border: 0;
-            outline: 0;
-            border-radius: 5px;
-        }
-
-        .add_food_here {
-            flex: 6;
-            border: 1px solid rgba(192, 192, 192, 0.7);
-        }
-
-        .veg,
-        .non-veg {
-            flex: 1;
-        }
-
-        .total {
-            border: 1px solid rgba(192, 192, 192, 0.7);
-            flex: 1;
-        }
-
-        .closeit {
-            border: 1px solid rgba(192, 192, 192, 0.7);
-            flex: 0.5;
-            padding: 0;
-            background-color: gray;
-            color: white;
-        }
-
-        .edit {
-            flex: 1;
-            border: 1px solid rgba(192, 192, 192, 0.7);
-            padding: 0;
-            background-color: gray;
-            color: white;
-        }
-
-        .btn {
-            padding: 5px 17px;
-            outline: 0;
-            border-radius: 5px;
-        }
-
-        .button {
-            padding: 10px 20px;
-            background-color: gray;
-            color: white;
-            border: 0;
-            outline: 0;
-            border: 1px solid rgba(192, 192, 192, 0.7);
-        }
-
-        table {
-            width: 100%;
-        }
-    </style>
 </head>
 
 <body>
@@ -126,8 +51,7 @@ if(isset($_POST["submitSave"]))
 
         <nav>
             <ul class="nav-box">
-                <li><a href="./addmenu1.php">Add Menu</a></li>
-                <li><a href="#">Food Manu</a></li>
+                <li><a href="./addmenu1.php">Menu</a></li>
                 <li class="sub_menu_profile"><a href="#"><?php echo $_SESSION['shopname'] ?></a>
                     <ul>
                         <li><a href="">Profile</a></li>
@@ -142,9 +66,7 @@ if(isset($_POST["submitSave"]))
             </ul>
         </nav>
     </header>
-    <form action="#" method="post" id="add_food">
-        <button type="submit" name="submitSave" class="button">Save</button>    
-        <!-- <input type="submit" value="Save" class="button" name="submitSave"> -->
+    <form action="" method="post" id="add_food" enctype="multipart/form-data">
 
         <div id="menu_list">
 
@@ -162,10 +84,10 @@ if(isset($_POST["submitSave"]))
 
             <input type="number" name="price" id="" placeholder="Food Price" class="total">
 
-            <input type="file" class="total" name="foodImg">
+              <input type="file" name="pimage" class="total">
 
         </div>
-
+        <button type="submit" name="submitSave" class="button">Save</button>   
     </form>
 
     
@@ -175,7 +97,6 @@ if(isset($_POST["submitSave"]))
             $table =  $_SESSION['shopname'];
             $s2 = str_replace(" ", "_", $table);
         $res=mysqli_query($con,"select * from $s2");
-        echo $s2;
 		while($row = mysqli_fetch_array($res))
 		{
 			?>
@@ -184,9 +105,9 @@ if(isset($_POST["submitSave"]))
                 <td><?php echo $row["menu_list"] ?></td>
                 <td><?php echo $row["food_type"] ?></td>
                 <td><?php echo $row["price"] ?></td>
-                <td><img src="../shop_image/0573819467fc2fadae97f3e280c5996bSANTUSTHI.jpg" alt="" srcset=""
-                        style="width:50px; height:50px;"></td>
-                <td><input type="button" value="X" name="remove"></td>
+                <td><img src="../<?php echo  $row['image_food']; ?>" alt='' style="width:50px; height:50px;"></td>
+                <td class="tablebtn"><input type="button" value="Edit" name="Edit"></td>
+                <td class="tablebtn"><input type="button" value="X" name="remove"></td>
             </tr>
         </table>
         <?php

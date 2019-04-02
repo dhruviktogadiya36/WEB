@@ -3,12 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 html {
     font-size: 10px;
     font-weight: 100;
 }
-
 body {
     padding: 0;
     margin: 0;
@@ -19,118 +17,85 @@ body {
     font-size: 16px;
     font-weight: 300;
 }
-
-header {
+header{
     width: 100%;
-    height: 70px;
-    background-color: #2874f0;
+    background-color: #464d78;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+p{font-size: 16px;}
+.location, .location p{
     display: flex;
     align-items: center;
-    z-index: 99;
-}
-main{
-    z-index: -1;
-}
-
-header .location,
-.search,
-nav {
-    flex: 1;
-}
-
-.location {
-    display: flex;
-    justify-content: center;
-}
-
-header .location .loction_list,
-.search_list,
-ul.nav-box {
-    display: flex;
-}
-
-header .search .search_list,
-.location .loction_list {
-    justify-content: center;
-}
-
-header nav ul.nav-box {
-    justify-content: space-around;
-}
-
-header .location .loction_list h3,
-i {
-    padding: 0 3px;
     color: white;
-    font-weight: 100;
 }
-
+.material-icons{
+    color: white;
+}
 input {
-    width: 400px;
     border-radius: 3px;
     outline: none;
     border: 1px solid white;
-    padding: 7px;
+    padding: 3px;
     transition: .5s;
     font-size: 16px;
     color: black;
     background-color: white;
-    transition: .5s;
 }
-
-.search .search_list input:focus {
+.search input:focus {
     background-color: rgba(255, 255, 255, 0.247);
     color: white;
 }
-
 ::placeholder {
     letter-spacing: 2px;
     opacity: 0.5;
     color: black;
 }
-
-header nav ul li {
-    list-style-type: none;
+header nav ul {
+    display: flex;
+    text-transform: uppercase;
 }
-
-header nav ul li a {
-    line-height: 70px;
-    padding: 0px 30px;
+header nav ul li{
+    list-style-type: none;
+    position: relative;
+}
+header nav ul li ul{
+    position: absolute;
+    left: 0;
+    background-color:  #464d78;
+    display: none;
+    z-index: 2;
+}
+header nav ul li:hover ul{
+    display: block;
+}
+header nav ul li ul li{
+    display: block;
+}
+ul li a{
+    height: 50px;
+    line-height: 50px;
+    padding: 0 30px;
+    text-decoration: none;
     color: white;
     text-align: center;
     display: block;
 }
-
-a {
-    text-decoration: none;
-    color: black;
-    display: block;
-
-}
-
-header nav ul li a:hover {
+nav ul li a:hover,
+nav .btn:hover {
     background-color: white;
     color: black;
-    cursor: auto;
 }
-
-nav .nav-box li ul {
-    position: relative;
-    margin-left: -15px;
-    display: none;
-}
-
-nav .nav-box li:hover ul {
-    position: absolute;
-    top: 70px;
-    display: block;
-    background-color: rgb(104, 103, 103);
-}
-
-main {
-    position: sticky;
-    top: 0;
-    overflow: hidden;
+nav .btn{
+    outline: 0;
+    border: 0;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 65px;
+    color: white;
+    font-size: 16px;
+    background-color:  #464d78;
 }
 
 /**** After scroll event black class run *****/
@@ -138,7 +103,6 @@ main {
 .black .shophead {
     height: 20vh;
 }
-
 .black .shophead .shopbox,
 .black .shophead .shopbox img {
     width: 100px;
@@ -146,29 +110,37 @@ main {
     border-radius: 5px;
     padding: 0;
 }
-
 .black .shophead h1,
 .black .shophead p {
     font-size: 14px;
     margin-left: 10px;
     padding: 5px;
 }
-
 .black .shophead h1,
 .black .shophead .shopsearch input {
     width: 50em;
 }
-.sub_menu_profile{text-transform: uppercase;}
 
 /****** shophead header **/
+
+main{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
 .shophead {
+    position: relative;
     display: flex;
     align-items: center;
+    justify-content:flex-start;
     width: 100%;
     height: 35vh;
     background-color: #141622;
     transition: .3s;
-
+}
+.shopdesc{
+    display: flex;
+    flex-direction: column;
 }
 
 .shophead .shopbox {
@@ -181,15 +153,13 @@ main {
     transition: .5s;
 
 }
-
 .shophead .shopbox img {
     width: 200px;
     height: 200px;
-    padding: 10px;
+    padding: 8px;
     border-radius: 20px;
     transition: .5s;
 }
-
 h1,
 p {
     color: white;
@@ -200,12 +170,10 @@ p {
     font-weight: 300;
     transition: .5s;
 }
-
 .shopsearch {
     position: absolute;
     right: 0;
     margin-right: 70px;
-    overflow: hidden;
 }
 /****** shopmenu box  ****/
 
@@ -214,10 +182,15 @@ p {
     width: 100%;
     height: auto;
 }
+.filter ul{
+    display: block;
+}
+.filter a{
+    color: black;
+}
 /**** filter in left side ***/
 .filter{
     flex: 0.5;
-    margin-top: 30px;
 }
 .filter ul{
     position: sticky;
@@ -226,11 +199,10 @@ p {
    height: auto;
 }
 .filter ul li{
-   margin: 15px 0;
 }
 .filter ul li a{
     text-align: center;
-    padding: 10px;
+    line-height: 70px;
     transition: .2s;
 }
 .filter ul li a:hover{
@@ -244,56 +216,47 @@ p {
     flex-wrap: wrap;
     justify-content: center;
     height: auto;
-    overflow: hidden;
 }
-
 .menubox {
+    position: relative;
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
     height: 70px;
     margin: 25px 25px 0 25px;
     border: 1px solid silver;
     border-radius: 5px;
-    z-index: -3;
-}
-.menubox .menulist-left {
-    flex: 1;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-left: 10px;
-}
-.menubox .btnright{
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-right: 10px;
-}
-.sqr{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 20px;
-    margin-right: 20px;
-    width: 20px;
-    height: 20px;
-    border: 1.5px solid green;
-    border-radius: 5px;
-}
-.sqr .circle{
-    width: 10px;
-    height: 10px;
-    background-color: green;
-    border-radius: 50px;
 }
 .menuimage{
     width: 50px;
     height: 50px;
+    margin-left: 20px;
     transition: 0.5s;
 }
-
-button {
+.menuimage:hover{
+    transform: scale(2.0);
+}
+.sqr{
+    display: flex;
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid green;
+    border-radius: 5px;
+    margin: 0 30px 0 30px;
+}
+.sqr .circle{
+    width: 10px;
+    height: 10px;
+    margin: auto;
+    background-color: green;
+    border-radius: 50px;
+}
+.addbtn{
+    position: absolute;
+    right: 10px;
+}
+ button {
     border: 0;
     outline: 0;
     background-color: #2874f0;
@@ -317,22 +280,25 @@ button {
     align-items: center;
     margin-left: 10px;
 }
+.menubox p {
+    position: absolute;
+    color: black; 
+    font-weight: 400;
+    right: 150px;
+}
 
 .menubox h3,
-.menubox p,
 .menuboxcart p,
 .menuboxcart h3 {
     color: black;
     margin: 0;
     font-weight: 400;
 }
-
-.shopmenu .cartright {
+.cartright {
     flex: 1;
     background-color: #f6f6f6;
     border-left: 3px solid rgba(192, 192, 192, 0.185);
     height: auto;
-   z-index: -3;
 }
 
 .cartright .sw {
@@ -340,39 +306,33 @@ button {
     top: 22vh;
 }
 
-.shopmenu .cartright .shop_detail h1,
-.shopmenu .cartright .shop_detail p {
-    color: black;
+.cartright  h1,
+.cartright  p {
+    color: rgb(95, 93, 93);
     font-weight: 400;
     padding: 0;
     margin: 15px 0 20px 20px;
 }
-
-.shopmenu .cartright .menuboxcart {
+.cartright .menuboxcart{
     position: relative;
-   width: auto;
-    height: 70px;
-    background-color: rgba(223, 222, 222, 0.856);
     border-left: 3px solid black;
+    width: 100%;
+    height: 70px;
     margin: auto;
     margin-top: 10px;
-}
-
-.btn {
-    position: absolute;
-    right: 5px;
-    bottom: 5px;
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
-
-.btn input {
-    width: 30px;
-    padding: 3px;
-    margin: 0;
-    border-radius: 0;
+.menuboxcart .btn
+{
+    position: absolute;
+    right: 0;
+}
+.menuboxcart .btn input{
+    width: 35px;
     text-align: center;
 }
-
 .btn input:nth-child(odd) {
     background-color: #141622;
     color: white;
@@ -394,6 +354,7 @@ button {
 
 .cartright .chk {
     width: 300px;
+    background-color: green;
     margin: 0 0 20px 100px;
 }
 

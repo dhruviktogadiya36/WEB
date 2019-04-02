@@ -23,8 +23,7 @@ include "../../User/Php/connection.php";
 
         <nav>
             <ul class="nav-box">
-                <li><a href="./addmenu1.php">Add Menu</a></li>
-                <li><a href="#">Food Manu</a></li>
+                <li><a href="./addmenu1.php">Menu</a></li>
                 <li class="sub_menu_profile"><a href="#"><?php echo $_SESSION['shopname'] ?></a>
                     <ul>
                         <li><a href="">Profile</a></li>

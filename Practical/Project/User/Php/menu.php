@@ -2,75 +2,78 @@
 include "./connection.php";
 $con=mysqli_connect('localhost','root','','store');
 
+$id = $_GET['id'];//id of shopname
 
+$con1 = mysqli_connect('localhost','root','','projectweb');
+
+$result = mysqli_query($con1,"SELECT * FROM `admin_shop` WHERE `id` = $id")or die(mysqli_error($con1));
+$row = mysqli_fetch_assoc($result);
+
+$sname1 = $row['shop_name'];
+$smenu = $row['shop_menu'];
+$sadd = $row['shop_address'];
+$simg = $row['shop_image'];
+$sname = str_replace(" ", "_", $sname1);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="../Css/menu.css">
-    
-    <title>Menu</title>
+    <link rel="icon" href="../../admin/<?php echo $row['shop_image']; ?>">
+    <title><?php echo $row['shop_name'];?></title>
 </head>
-
 <body>
     <header>
         <div class="location">
-            <a href="">
-                <div class="loction_list">
-                    <h3>Rajkot</h3>
+                    <p>Rajkot</p>
                     <i class="material-icons">
                         location_on
                     </i>
-                </div>
-            </a>
         </div>
 
         <form action="" class="search">
-            <div class="search_list">
-                <input type="search" placeholder="Search.....">
-            </div>
+                <input type="text" id="myInput" onkeyup="foodfilter()" placeholder="Search.....">
         </form>
 
         <nav>
             <ul class="nav-box">
                 <li><a href="#">Help</a></li>
                 <li><a href="#">Cart</a></li>
-                <li class="sub_menu_profile" style="text-transform:uppercase"><a
-                        href="#"><?php echo $_SESSION['uname'] ?></a>
+                <li class="sub_menu"><a href="#"><?php echo $_SESSION['uname'] ?></a>
                     <ul>
                         <li><a href="">Profile</a></li>
                         <li><a href="">Order</a></li>
                         <li><a href="">Wishlist</a></li>
                         <li><a href="">Notification</a></li>
                         <li>
-                            <form action="#" method="post">
-                                <button type="submit" name="logout">Logout</button>
-                            </form>
+                        <form action="" method="post">
+                        <button type="submit" class="btn" name="logout">Logout</button>
+                        </form>
                         </li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </header>
-    <main style="z-index:-1;">
+    <main>
         <div class="shophead">
             <div class="shopbox">
-                <img src="../image/dom.jpg" alt="">
+                <img src="../../admin/<?php echo $simg; ?>" alt="">
             </div>
-            <div>
-                <h1>Domino's Pizza</h1>
-                <p>Pizza</p>
-                <p>kotecha chowk,Rajkot</p>
+            <div class="shopdesc">
+                <h1><?php echo $sname1;?></h1>
+                <p><?php echo $smenu; ?></p>
+                <p><?php echo $sadd; ?></p>
             </div>
-            <form action="" class="shopsearch">
+            <!-- <form action="" class="shopsearch">
                 <input type="search" placeholder="Search Your Favorite Disses..">
-            </form>
+            </form> -->
         </div>
     </main>
     <section>
@@ -84,32 +87,27 @@ $con=mysqli_connect('localhost','root','','store');
                     <li><a href="">Ice Cream</a></li>
                 </ul>
             </div>
-            <div class="menuleft">
+            <div class="menuleft" id="foodlist">
                 <!--Menubox food menu list-->
-<?php
-    $result = mysqli_query($con,"SELECT * FROM domino_pizza");
-        while($row = mysqli_fetch_assoc($result))
-        {
-
+                <?php
+     $result = mysqli_query($con,"SELECT * FROM $sname")or die(mysqli_error($con));
+         while($row = mysqli_fetch_assoc($result))
+         {
+             
+            $id2 = $row['id'];// id of menulist
 ?>
-        <div class="menubox">
-        <div class="menulist-left">
-            <img src="../image/dom.jpg" style = "width: 50px;
+                <div id="menubox" class="menubox">
+                        <img src="../../admin/<?php echo $row['image_food']; ?>" style="width: 50px;
     height: 50px;" alt="" class="menuimage">
-            <div class="sqr">
-                <div class="circle"></div>
-            </div>
-            <h3><?php echo $row['menu_list'] ?></h3>
-
-        </div>
-        <div class="btnright">
-            <p> &#x20b9 <?php echo $row['price'] ?></p>
-            <button>ADD</button>
-        </div>
-    </div>
-
-        <?php
-
+                        <div class="sqr">
+                            <div class="circle"></div>
+                        </div>
+                        <h3 class="name" id="#b<?php echo $id2 ?>"><?php echo $row['menu_list'] ?></h3>
+                        <p>&#x20b9 <span id="#c<?php echo $id2 ?>"><?php echo $row['price'] ?></span></p>
+                        <button type="button" name="additem" class="addbtn" onclick="myFunction(<?php echo $id2 ?>,a=0);">ADD</button>
+                </div>
+                
+                <?php
     }
 
 ?>
@@ -118,30 +116,18 @@ $con=mysqli_connect('localhost','root','','store');
             <!--Cart-->
             <div class="cartright">
                 <div class="sw">
-                    <div class="shop_detail">
-                        <h1>CART</h1>
-                        <p>from Domino's Pizza</p>
-                        <p>1 item</p>
-                    </div>
+                    <h1>CART</h1>
+                    <p>from <?php echo $sname1;?></p>
+                    <p><span id="num_item">0</span> item</p>
                     <!--menu list in Cart-->
-                    <div class="menuboxcart">
-                        <div class="menulist-right">
-                            <div class="sqr">
-                                <div class="circle"></div>
-                            </div>
-                            <h3>Cheese & Corn</h3>
-                            <p> &#x20b9 95</p>
+                    <div id="menuList" class= "menulist">
+                <!----- creating dynamic div -->                  
                         </div>
-                        <div class="btn">
-                            <input type="button" value="-">
-                            <input type="text" value="3" maxlength="2">
-                            <input type="button" value="+">
-                        </div>
-                    </div>
+                    
                     <!--Total-->
                     <div class="order">
                         <h3>SubTotal</h3>
-                        <p> &#x20b9 520</p>
+                        <p> &#x20b9 <span id="total">0</span> </p>
                     </div>
                     <button class="chk">Checkout</button>
                 </div>
@@ -150,6 +136,7 @@ $con=mysqli_connect('localhost','root','','store');
         </div>
     </section>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="../JS/main.js"></script>
     <script>
         $(window).on('scroll', function () {
             if ($(window).scrollTop()) {
@@ -159,8 +146,6 @@ $con=mysqli_connect('localhost','root','','store');
             }
         })
     </script>
-
-
 </body>
 
 </html>
